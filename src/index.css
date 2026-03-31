@@ -1,0 +1,84 @@
+@import "tailwindcss";
+
+@theme {
+  --color-trion-purple: #7B2CBF;
+  --color-trion-midnight: #272757;
+  --color-trion-lilas: #c084fc;
+  --color-trion-green: #15803d;
+  --color-trion-blue: #0369a1;
+  --color-trion-text: #120326;
+  --color-trion-bg: #0f0a1a;
+  --color-trion-card: #1a1333;
+  --color-trion-card-hover: #231a44;
+  --color-trion-border: #2d2255;
+  --color-gold: #d4af37;
+  --color-emerald: #10b981;
+  --color-rose: #f43f5e;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--color-trion-bg);
+  color: #e2e8f0;
+  font-family: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(123, 44, 191, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(123, 44, 191, 0.6); }
+}
+
+@keyframes countUp {
+  from { opacity: 0; transform: scale(0.5); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes growWidth {
+  from { width: 0; }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.glass {
+  background: rgba(26, 19, 51, 0.6);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(123, 44, 191, 0.2);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #c084fc, #7B2CBF, #d4af37);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0f0a1a;
+}
+::-webkit-scrollbar-thumb {
+  background: #7B2CBF;
+  border-radius: 3px;
+}
