@@ -262,10 +262,10 @@ export default function App() {
           </p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             {[
-              { n: '40', label: 'Clientes meta Y1' },
+              { n: '45', label: 'Clientes cap Y1' },
               { n: 'R$ 3.500', label: 'Ticket médio/mês' },
-              { n: 'R$ 1,07M', label: 'EBITDA Y1 (realista)' },
-              { n: '+412%', label: 'ROI em 24 meses' },
+              { n: 'R$ 5.000', label: 'Renda/sócio desde M1' },
+              { n: 'M5–M6', label: 'Payback do investimento' },
             ].map((m, i) => (
               <div key={i} className="bg-white/5 backdrop-blur rounded-xl p-4 border border-white/10">
                 <div className="font-display text-2xl md:text-3xl font-bold text-gold">{m.n}</div>
@@ -288,7 +288,7 @@ export default function App() {
           {[
             { icon: '🎯', title: 'Gestão completa', desc: 'Campanhas Meta Ads, landing pages, criativos, copies e relatórios mensais. O médico foca no paciente.' },
             { icon: '🔄', title: 'Receita recorrente', desc: 'Mensalidade de R$3.500/cliente com fidelidade mínima de 3 meses. Previsibilidade de caixa desde o mês 1.' },
-            { icon: '🤖', title: 'IA como alavanca', desc: '10 novos onboardings/mês + gestão de 20 em ongoing com IA. Capacidade de 40 clientes com 5 pessoas.' },
+            { icon: '🤖', title: 'IA como alavanca', desc: '4 indicações Edu + 3 tráfego = 7 novos/mês. Capacidade de 45 clientes com 5 pessoas usando IA.' },
           ].map((c, i) => (
             <Card key={i}>
               <div className="text-3xl mb-4">{c.icon}</div>
@@ -310,9 +310,9 @@ export default function App() {
 
         <div className="grid md:grid-cols-3 gap-6 mb-16">
           {[
-            { name: 'Pessimista', invest: '237k', payback: 'M8', ebitdaY1: '614k', roi: '+259%', churn: '8%' },
-            { name: 'Realista', invest: '260.5k', payback: 'M6', ebitdaY1: '1,07M', roi: '+412%', star: true, churn: '5%' },
-            { name: 'Otimista', invest: '285k', payback: 'M5', ebitdaY1: '1,15M', roi: '+442%', churn: '3%' },
+            { name: 'Pessimista', invest: '285k', payback: 'M7', ebitdaY1: '700k', roi: '+245%', churn: '8%' },
+            { name: 'Realista', invest: '285k', payback: 'M5–M6', ebitdaY1: '1,07M', roi: '+375%', star: true, churn: '5%' },
+            { name: 'Otimista', invest: '285k', payback: 'M5', ebitdaY1: '1,28M', roi: '+449%', churn: '3%' },
           ].map((c, i) => (
             <Card key={i} highlight={c.star} className={!c.star ? 'border-t-4 border-sage-mist' : ''}>
               <div className="flex items-center gap-2 mb-4">
@@ -341,61 +341,70 @@ export default function App() {
 
         <div className="bg-white rounded-2xl p-6 md:p-8 border border-sage-mist shadow-sm mb-12">
           <h3 className="font-display text-xl font-semibold text-ink mb-2">Receita mensal — Cenário Realista</h3>
-          <p className="text-sm text-text-muted mb-6">Em R$ mil · Payback no mês 6 · Cap de 40 clientes atingido no M8</p>
+          <p className="text-sm text-text-muted mb-6">Em R$ mil · Payback no M5–M6 · Cap de 45 clientes atingido no M8 · 7 novos/mês (4 Edu + 3 tráfego)</p>
           <LineChart data={[
-            { label: 'M1', value: 28000 }, { label: 'M2', value: 45500 }, { label: 'M3', value: 66500 },
-            { label: 'M4', value: 87500 }, { label: 'M5', value: 105000 }, { label: 'M6', value: 126000 },
-            { label: 'M7', value: 140000 }, { label: 'M8', value: 147000 }, { label: 'M9', value: 147000 },
-            { label: 'M10', value: 147000 }, { label: 'M11', value: 147000 }, { label: 'M12', value: 147000 },
+            { label: 'M1', value: 17500 }, { label: 'M2', value: 38500 }, { label: 'M3', value: 56000 },
+            { label: 'M4', value: 84000 }, { label: 'M5', value: 105000 }, { label: 'M6', value: 126000 },
+            { label: 'M7', value: 143500 }, { label: 'M8', value: 157500 }, { label: 'M9', value: 157500 },
+            { label: 'M10', value: 157500 }, { label: 'M11', value: 157500 }, { label: 'M12', value: 157500 },
           ]} />
         </div>
 
         <div className="bg-white rounded-2xl p-6 md:p-8 border border-sage-mist shadow-sm">
           <h3 className="font-display text-xl font-semibold text-ink mb-2">EBITDA acumulado — Cenário Realista</h3>
-          <p className="text-sm text-text-muted mb-6">Em R$ mil · Investimento recuperado no M6</p>
+          <p className="text-sm text-text-muted mb-6">Em R$ mil · Investimento recuperado no M5–M6 · Inclui R$5k/sócio desde M1</p>
           <LineChart data={[
-            { label: 'M1', value: 10500 }, { label: 'M2', value: 38500 }, { label: 'M3', value: 87500 },
-            { label: 'M4', value: 155500 }, { label: 'M5', value: 241000 }, { label: 'M6', value: 345000 },
-            { label: 'M7', value: 460500 }, { label: 'M8', value: 583000 }, { label: 'M9', value: 705500 },
-            { label: 'M10', value: 828000 }, { label: 'M11', value: 950500 }, { label: 'M12', value: 1073000 },
+            { label: 'M1', value: 1000 }, { label: 'M2', value: 1000 }, { label: 'M3', value: 21000 },
+            { label: 'M4', value: 66000 }, { label: 'M5', value: 135000 }, { label: 'M6', value: 225000 },
+            { label: 'M7', value: 330000 }, { label: 'M8', value: 450000 }, { label: 'M9', value: 570000 },
+            { label: 'M10', value: 690000 }, { label: 'M11', value: 810000 }, { label: 'M12', value: 930000 },
           ]} color="#C9A84C" fillColor="rgba(201,168,76,0.08)" />
         </div>
       </Section>
 
-      {/* ═══════ ANO 2 ═══════ */}
+      {/* ═══════ ANO 2–3 ═══════ */}
       <Section>
-        <SectionLabel>Ano 2</SectionLabel>
+        <SectionLabel>Anos 2–3</SectionLabel>
         <SectionTitle>Autofinanciada e escalando</SectionTitle>
         <p className="text-ink-soft text-lg max-w-3xl mb-12">
-          A partir do mês 13, a empresa se autofinancia 100%. Capacidade ampliada para 60 clientes.
-          MRR projetado de R$210.000 no M24.
+          A partir do mês 13, a empresa se autofinancia 100%. Reinvestimento de 3% do MRR em marketing (a partir do M6) potencializa crescimento.
+          70 clientes em M18 · 112 clientes em M36 · MRR de R$392k no M36.
         </p>
         <div className="grid md:grid-cols-2 gap-6">
           <Card>
-            <h3 className="font-display text-xl font-semibold text-ink mb-4">Crescimento trimestral Y2</h3>
-            <HBar label="Q1 (Mai–Jul/27)" value={48} max={60} suffix=" clientes" />
-            <HBar label="Q2 (Ago–Out/27)" value={55} max={60} suffix=" clientes" />
-            <HBar label="Q3 (Nov/27–Jan/28)" value={60} max={60} suffix=" clientes" color="bg-gold" />
-            <HBar label="Q4 (Fev–Abr/28)" value={60} max={60} suffix=" clientes" color="bg-gold" />
+            <h3 className="font-display text-xl font-semibold text-ink mb-4">Crescimento — M13 a M36</h3>
+            <HBar label="M13 (45 clientes)" value={45} max={112} suffix=" clientes" />
+            <HBar label="M15 (52 clientes · R$10k/sócio)" value={52} max={112} suffix=" clientes" color="bg-sage-light" />
+            <HBar label="M18 (70 clientes)" value={70} max={112} suffix=" clientes" color="bg-gold" />
+            <HBar label="M24 (70 clientes)" value={70} max={112} suffix=" clientes" color="bg-gold" />
+            <HBar label="M36 (112 clientes · R$15k/sócio)" value={112} max={112} suffix=" clientes" color="bg-sage" />
+            <div className="mt-4 pt-4 border-t border-sage-mist text-xs text-text-muted">
+              M15 = R$10k/sócio (MRR ≥ R$180k) · M36 = R$15k/sócio (MRR ≥ R$300k) · Reinvestimento 3% MRR a partir do M6
+            </div>
           </Card>
           <Card highlight>
-            <h3 className="font-display text-xl font-semibold text-white mb-6">Resultado Y2 — Realista</h3>
-            <div className="space-y-5">
+            <h3 className="font-display text-xl font-semibold text-white mb-6">Resultado Realista</h3>
+            <div className="space-y-4">
               <div>
-                <div className="text-white/60 text-sm">Receita anual</div>
-                <div className="font-display text-3xl font-bold text-white">R$ <Counter end={2278} suffix=".500" /></div>
+                <div className="text-white/60 text-sm">MRR M18 · 70 clientes</div>
+                <div className="font-display text-3xl font-bold text-white">R$ <Counter end={245} suffix=".000" /></div>
               </div>
               <div>
-                <div className="text-white/60 text-sm">EBITDA Y2</div>
-                <div className="font-display text-3xl font-bold text-gold">R$ <Counter end={1942} suffix=".500" /></div>
+                <div className="text-white/60 text-sm">EBITDA mensal M18</div>
+                <div className="font-display text-2xl font-bold text-gold">R$ <Counter end={173} suffix=".000" /></div>
+              </div>
+              <div className="h-px bg-white/20" />
+              <div>
+                <div className="text-white/60 text-sm">MRR M36 · 112 clientes</div>
+                <div className="font-display text-3xl font-bold text-white">R$ <Counter end={392} suffix=".000" /></div>
               </div>
               <div>
-                <div className="text-white/60 text-sm">MRR no M24</div>
-                <div className="font-display text-3xl font-bold text-white">R$ <Counter end={210} suffix=".000" /></div>
+                <div className="text-white/60 text-sm">EBITDA mensal M36</div>
+                <div className="font-display text-2xl font-bold text-gold">R$ <Counter end={273} suffix=".000" /></div>
               </div>
-              <div className="pt-4 border-t border-white/20">
-                <div className="text-white/60 text-sm">ARR projetado</div>
-                <div className="font-display text-2xl font-bold text-gold-light">R$ 2.520.000</div>
+              <div className="pt-3 border-t border-white/20">
+                <div className="text-white/60 text-sm">ARR projetado M36</div>
+                <div className="font-display text-2xl font-bold text-gold-light">R$ 4.704.000</div>
               </div>
             </div>
           </Card>
@@ -434,15 +443,15 @@ export default function App() {
             <div className="bg-gold/10 backdrop-blur rounded-2xl p-6 md:p-8 border border-gold/30 animate-pulse-glow">
               <div className="text-gold text-xs tracking-wider uppercase mb-3 font-medium">✓ Com milestones ★</div>
               <div className="font-display text-4xl font-bold text-white mb-2">22,5%</div>
-              <div className="text-white/50 text-sm mb-4">de uma empresa de R$7–12 milhões</div>
+              <div className="text-white/50 text-sm mb-4">de uma empresa de R$8–14 milhões</div>
               <div className="bg-white/5 rounded-xl p-4">
                 <div className="text-white/40 text-xs mb-1">Valuation M24 (conservador 3x ARR)</div>
-                <div className="font-display text-2xl font-semibold text-white">R$ 7.560.000</div>
-                <div className="text-white/40 text-xs mt-1 mb-3">(60 clientes, MRR R$210k)</div>
+                <div className="font-display text-2xl font-semibold text-white">R$ 8.820.000</div>
+                <div className="text-white/40 text-xs mt-1 mb-3">(70 clientes, MRR R$245k)</div>
                 <div className="h-px bg-white/10 my-3" />
                 <div className="text-white/40 text-xs mb-1">Equity do investidor</div>
-                <div className="font-display text-3xl font-bold text-gold">R$ 1.701.000</div>
-                <div className="text-gold/60 text-xs mt-1">até R$ 2.835.000 (5x ARR)</div>
+                <div className="font-display text-3xl font-bold text-gold">R$ 1.984.500</div>
+                <div className="text-gold/60 text-xs mt-1">até R$ 3.307.500 (5x ARR)</div>
               </div>
             </div>
           </div>
@@ -455,7 +464,7 @@ export default function App() {
                 <h3 className="font-display text-xl font-semibold text-white mb-2">O ponto-chave</h3>
                 <p className="text-white/70 leading-relaxed">
                   O investidor não perde dinheiro com a diluição — ele troca percentual por crescimento real de valor.
-                  Sair de 60% para 22,5% com os milestones significa ir de <strong className="text-white">R$300k para R$1,7M–R$2,8M</strong>.
+                  Sair de 60% para 22,5% com os milestones significa ir de <strong className="text-white">R$300k para R$2M–R$3,3M</strong>.
                   Os milestones são o que faz isso acontecer — e quem entrega os milestones é a operação.
                 </p>
               </div>
@@ -465,9 +474,9 @@ export default function App() {
           {/* MILESTONES TIMELINE */}
           <h3 className="font-display text-2xl font-semibold text-white mb-8">Evolução por milestone</h3>
           <MilestoneStep phase="Dia 1 — Assinatura" trigger="Assinatura do SHA" investPct={60} filhosPct={10} techPct={15} pool={15} equityValue="R$ 302k (3x ARR)" active />
-          <MilestoneStep phase="Milestone 1 — Payback" trigger="EBITDA acumulado ≥ capital investido" investPct={48} filhosPct={13} techPct={24} pool={15} equityValue="R$ 2.178k (3x ARR)" />
+          <MilestoneStep phase="Milestone 1 — Payback" trigger="EBITDA acumulado ≥ R$ 285k investidos" investPct={48} filhosPct={13} techPct={24} pool={15} equityValue="~R$ 2.268k (3x ARR · M6)" />
           <MilestoneStep phase="Milestone 2 — 40 Clientes" trigger="40 clientes ativos por 30 dias consecutivos" investPct={36} filhosPct={16} techPct={33} pool={15} equityValue="R$ 1.814k (3x ARR)" />
-          <MilestoneStep phase="Milestone 3 — Estado Final" trigger="M24 ou ARR ≥ R$2M" investPct={22.5} filhosPct={20} techPct={42.5} pool={15} equityValue="R$ 1.701k – R$ 2.835k" active />
+          <MilestoneStep phase="Milestone 3 — Estado Final" trigger="M24 ou ARR ≥ R$2,4M" investPct={22.5} filhosPct={20} techPct={42.5} pool={15} equityValue="R$ 1.985k – R$ 3.308k" active />
         </div>
       </section>
 
@@ -617,10 +626,10 @@ export default function App() {
               <h3 className="font-display text-xl font-semibold text-white mb-6">Componentes do retorno</h3>
               <div className="space-y-4">
                 {[
-                  { label: 'Capital investido (Y1)', value: 'R$ 260.500', note: 'Custeio 100% da operação' },
-                  { label: 'Retorno preferencial', value: '~R$ 85.000', note: 'IPCA+12% × ~2 anos, pago primeiro' },
+                  { label: 'Capital investido (Y1)', value: 'R$ 285.000', note: 'Custeio 100% — inclui R$5k/sócio desde M1' },
+                  { label: 'Retorno preferencial', value: '~R$ 93.000', note: 'IPCA+12% × ~2 anos, pago primeiro' },
                   { label: 'Distribuições Y1', value: 'R$ 80–120k', note: '48% do EBITDA distribuível Q3-Q4' },
-                  { label: 'Distribuições Y2', value: 'R$ 450–600k', note: '~30% equity × EBITDA Y2' },
+                  { label: 'Distribuições Y2', value: 'R$ 500–650k', note: '~30% equity × EBITDA Y2' },
                 ].map((r, i) => (
                   <div key={i} className="flex justify-between items-start py-2 border-b border-white/5">
                     <div>
@@ -637,24 +646,24 @@ export default function App() {
               <div className="space-y-6">
                 <div>
                   <div className="text-white/50 text-xs mb-1">Retorno conservador (3x ARR)</div>
-                  <div className="font-display text-4xl font-bold text-white">R$ <Counter end={2416} suffix="k" /></div>
-                  <div className="text-gold text-sm mt-1">ROI de 828%</div>
+                  <div className="font-display text-4xl font-bold text-white">R$ <Counter end={2770} suffix="k" /></div>
+                  <div className="text-gold text-sm mt-1">ROI de +870%</div>
                 </div>
                 <div className="h-px bg-white/10" />
                 <div>
                   <div className="text-white/50 text-xs mb-1">Retorno otimista (5x ARR)</div>
-                  <div className="font-display text-4xl font-bold text-gold">R$ <Counter end={3640} suffix="k" /></div>
-                  <div className="text-gold-light text-sm mt-1">ROI de 1.298%</div>
+                  <div className="font-display text-4xl font-bold text-gold">R$ <Counter end={4143} suffix="k" /></div>
+                  <div className="text-gold-light text-sm mt-1">ROI de +1.354%</div>
                 </div>
                 <div className="bg-white/5 rounded-xl p-4 mt-4">
                   <div className="text-white/40 text-xs mb-2">Cada R$1 investido retorna</div>
                   <div className="flex gap-6">
                     <div>
-                      <div className="font-display text-2xl font-bold text-white">R$ 9,28</div>
+                      <div className="font-display text-2xl font-bold text-white">R$ 9,72</div>
                       <div className="text-white/40 text-xs">conservador</div>
                     </div>
                     <div>
-                      <div className="font-display text-2xl font-bold text-gold">R$ 13,98</div>
+                      <div className="font-display text-2xl font-bold text-gold">R$ 14,54</div>
                       <div className="text-gold/60 text-xs">otimista</div>
                     </div>
                   </div>
@@ -717,6 +726,43 @@ export default function App() {
         </div>
       </section>
 
+      {/* ═══════ PRÓ-LABORE MILESTONES ═══════ */}
+      <Section className="bg-sage-mist/40">
+        <SectionLabel>Remuneração dos Sócios</SectionLabel>
+        <SectionTitle>R$5.000/sócio desde o primeiro dia</SectionTitle>
+        <p className="text-ink-soft text-lg max-w-3xl mb-12">
+          Estrutura otimizada: pró-labore formal (salário mínimo) + distribuição de lucros isenta de IR.
+          Sócios com foco 100% na operação desde o M1 — sem necessidade de freelas.
+        </p>
+        <div className="grid md:grid-cols-3 gap-6 mb-10">
+          {[
+            { phase: 'M1 — Assinatura', renda: 'R$ 5.000/sócio', trigger: 'Desde o dia 1', detail: 'R$1.621 PL formal + R$3.379 distribuição', color: 'border-gold bg-gold/5' },
+            { phase: 'Milestone R$10k', renda: 'R$ 10.000/sócio', trigger: 'MRR ≥ R$180k (~52 clientes)', detail: 'Previsto para M14–M16', color: 'border-sage' },
+            { phase: 'Milestone R$15k', renda: 'R$ 15.000/sócio', trigger: 'MRR ≥ R$300k (~86 clientes)', detail: 'Previsto para M24–M28', color: 'border-sage' },
+          ].map((m, i) => (
+            <div key={i} className={`rounded-2xl p-6 border-2 ${m.color} bg-white shadow-sm`}>
+              <div className="text-xs tracking-[0.15em] uppercase text-gold font-medium mb-2">{m.phase}</div>
+              <div className="font-display text-3xl font-bold text-ink mb-1">{m.renda}</div>
+              <div className="text-sm font-medium text-sage mb-3">{m.trigger}</div>
+              <div className="text-xs text-text-muted">{m.detail}</div>
+            </div>
+          ))}
+        </div>
+        <div className="bg-cream-warm border border-sage-mist rounded-2xl p-6 max-w-3xl">
+          <div className="flex items-start gap-4">
+            <div className="text-sage text-2xl">💡</div>
+            <div>
+              <h4 className="font-display text-lg font-semibold text-ink mb-2">Por que pró-labore mínimo?</h4>
+              <p className="text-sm text-ink-soft leading-relaxed">
+                Pró-labore paga INSS patronal (20%) + IRRF. Distribuição de lucros é <strong>isenta de IR até R$50k/mês</strong> por sócio.
+                Com 5 sócios a R$5k: empresa economiza ~R$40k/ano em impostos comparado ao pró-labore cheio.
+                A empresa precisa ter lucro contábil para distribuir — viável a partir do M3.
+              </p>
+            </div>
+          </div>
+        </div>
+      </Section>
+
       {/* ═══════ CUSTOS + FUNIL ═══════ */}
       <Section>
         <SectionLabel>Transparência</SectionLabel>
@@ -735,21 +781,26 @@ export default function App() {
             </div>
           </Card>
           <Card>
-            <h3 className="font-display text-xl font-semibold text-ink mb-4">Folha salarial</h3>
+            <h3 className="font-display text-xl font-semibold text-ink mb-4">Remuneração dos sócios (M1)</h3>
             {[
-              { p: 'M1–M3', q: '4 sócios', s: 'R$ 2.000', t: 'R$ 8.000' },
-              { p: 'M4–M5', q: '4 sócios', s: 'R$ 2.500', t: 'R$ 10.000' },
-              { p: 'M6', q: '5 sócios', s: 'R$ 2.500', t: 'R$ 12.500' },
-              { p: 'M7–M24', q: '5 sócios', s: 'R$ 3.000', t: 'R$ 15.000' },
+              { p: 'Pró-labore formal', q: '5 sócios × R$ 1.621', s: 'Salário mínimo', t: 'R$ 8.105' },
+              { p: 'INSS patronal', q: '20% sobre PL', s: 'Otimização fiscal', t: 'R$ 1.621' },
+              { p: 'Distribuição lucros', q: '5 sócios × R$ 3.379', s: 'Isenta de IR', t: 'R$ 16.895' },
+              { p: 'Fixo operacional', q: 'Escritório + ferramentas', s: '', t: 'R$ 6.000' },
+              { p: 'Marketing', q: 'Tráfego pago', s: '', t: 'R$ 3.000' },
             ].map((f, i) => (
-              <div key={i} className="flex justify-between py-2 border-b border-sage-mist last:border-0">
+              <div key={i} className={`flex justify-between py-2 border-b border-sage-mist last:border-0 ${i === 4 ? 'font-semibold' : ''}`}>
                 <div>
                   <div className="text-sm text-ink">{f.p}</div>
-                  <div className="text-xs text-text-muted">{f.q} × {f.s}</div>
+                  <div className="text-xs text-text-muted">{f.q}{f.s ? ` · ${f.s}` : ''}</div>
                 </div>
                 <div className="font-semibold text-sage">{f.t}</div>
               </div>
             ))}
+            <div className="flex justify-between py-3 mt-1 border-t-2 border-sage">
+              <div className="font-bold text-ink">Total M1</div>
+              <div className="font-display text-xl font-bold text-sage">R$ 35.621</div>
+            </div>
           </Card>
         </div>
 
@@ -757,16 +808,16 @@ export default function App() {
           <Card>
             <h3 className="font-display text-xl font-semibold text-ink mb-4">Sensibilidade ao ticket</h3>
             {[
-              { ticket: 'R$ 2.500', mrr: 'R$ 100k', payback: 'M9' },
-              { ticket: 'R$ 3.500 ★', mrr: 'R$ 140k', payback: 'M7', hl: true },
-              { ticket: 'R$ 4.500', mrr: 'R$ 180k', payback: 'M5' },
+              { ticket: 'R$ 2.500', mrr: 'R$ 112,5k', payback: 'M9' },
+              { ticket: 'R$ 3.500 ★', mrr: 'R$ 157,5k', payback: 'M5–M6', hl: true },
+              { ticket: 'R$ 4.500', mrr: 'R$ 202,5k', payback: 'M4' },
             ].map((t, i) => (
               <div key={i} className={`rounded-xl p-4 mb-2 ${t.hl ? 'bg-sage text-white' : 'bg-sage-mist'}`}>
                 <div className="flex justify-between">
                   <span className={`font-semibold ${t.hl ? 'text-white' : 'text-ink'}`}>{t.ticket}</span>
                   <span className={`text-xs font-medium ${t.hl ? 'text-gold' : 'text-sage'}`}>Payback {t.payback}</span>
                 </div>
-                <div className={`text-xs ${t.hl ? 'text-white/70' : 'text-text-muted'}`}>MRR (40 clientes): {t.mrr}</div>
+                <div className={`text-xs ${t.hl ? 'text-white/70' : 'text-text-muted'}`}>MRR (45 clientes): {t.mrr}</div>
               </div>
             ))}
           </Card>
